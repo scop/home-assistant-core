@@ -1259,6 +1259,9 @@ pytankerkoenig==0.0.6
 # homeassistant.components.tautulli
 pytautulli==21.11.0
 
+# homeassistant.components.jatekukko
+pytekukko==0.11.0
+
 # homeassistant.components.ecobee
 python-ecobee-api==0.2.14
 

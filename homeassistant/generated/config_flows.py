@@ -176,6 +176,7 @@ FLOWS = {
         "iss",
         "isy994",
         "izone",
+        "jatekukko",
         "jellyfin",
         "juicenet",
         "kaleidescape",

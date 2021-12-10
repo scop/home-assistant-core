@@ -1,0 +1,30 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Service is already configured",
+            "reauth_failed_existing": "Could not update the config entry, please remove the integration and set it up again.",
+            "reauth_successful": "Re-authentication was successful"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect",
+            "invalid_auth": "Invalid authentication",
+            "unknown": "Unexpected error"
+        },
+        "step": {
+            "reauth_confirm": {
+                "data": {
+                    "customer_number": "Customer number",
+                    "description": "Re-authenticate with your J\u00e4tekukko Omakukko credentials.",
+                    "password": "Password"
+                }
+            },
+            "user": {
+                "data": {
+                    "customer_number": "Customer number",
+                    "description": "Log in with your J\u00e4tekukko Omakukko credentials.",
+                    "password": "Password"
+                }
+            }
+        }
+    }
+}

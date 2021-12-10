@@ -1,0 +1,14 @@
+{
+  "domain": "jatekukko",
+  "name": "Jätekukko",
+  "config_flow": true,
+  "documentation": "https://www.home-assistant.io/integrations/jatekukko",
+  "requirements": [
+    "pytekukko==0.11.0"
+  ],
+  "codeowners": [
+    "@scop"
+  ],
+  "iot_class": "cloud_polling",
+  "loggers": ["jatekukko"]
+}

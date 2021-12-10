@@ -134,6 +134,7 @@ homeassistant.components.input_select.*
 homeassistant.components.integration.*
 homeassistant.components.isy994.*
 homeassistant.components.iqvia.*
+homeassistant.components.jatekukko.*
 homeassistant.components.jellyfin.*
 homeassistant.components.jewish_calendar.*
 homeassistant.components.kaleidescape.*
