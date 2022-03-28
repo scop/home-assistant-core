@@ -26,7 +26,7 @@ from homeassistant.loader import async_get_usb
 
 from .const import DOMAIN
 from .models import USBDevice
-from .utils import usb_device_from_port
+from .utils import usb_device_from_attributes, usb_device_from_port
 
 if TYPE_CHECKING:
     from pyudev import Device
@@ -155,13 +155,7 @@ class USBDiscovery:
             return
 
         monitor = Monitor.from_netlink(context)
-        try:
-            monitor.filter_by(subsystem="tty")
-        except ValueError as ex:  # this fails on WSL
-            _LOGGER.debug(
-                "Unable to setup pyudev filtering; This is expected on WSL: %s", ex
-            )
-            return
+        # TODO should we have _some_ filtering here?
         observer = MonitorObserver(
             monitor, callback=self._device_discovered, name="usb-observer"
         )
@@ -182,6 +176,8 @@ class USBDiscovery:
             device.device_path,
         )
         self.scan_serial()
+        if usb_device := usb_device_from_attributes(device.attributes):
+            self.hass.add_job(self._async_process_discovered_usb_device, usb_device)
 
     @callback
     def _async_process_discovered_usb_device(self, device: USBDevice) -> None:
