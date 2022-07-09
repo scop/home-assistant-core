@@ -66,7 +66,11 @@ SENSOR_META: dict[str | tuple[str, str], SensorMeta] = {
     # Device information
     #
     KEY_DEVICE_INFORMATION: SensorMeta(
-        include=re.compile(r"^(WanIP.*Address|uptime)$", re.IGNORECASE)
+        include=re.compile(r"^(WanIP.*Address|uptime|Mccmnc)$", re.IGNORECASE)
+    ),
+    (KEY_DEVICE_INFORMATION, "Mccmnc"): SensorMeta(
+        name="MCC/MNC",
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
     (KEY_DEVICE_INFORMATION, "uptime"): SensorMeta(
         name="Uptime",
@@ -88,8 +92,19 @@ SENSOR_META: dict[str | tuple[str, str], SensorMeta] = {
     #
     # Signal
     #
+    (KEY_DEVICE_SIGNAL, "arfcn"): SensorMeta(
+        # https://en.wikipedia.org/wiki/Absolute_radio-frequency_channel_number
+        name="ARFCN",
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
     (KEY_DEVICE_SIGNAL, "band"): SensorMeta(
         name="Band",
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    (KEY_DEVICE_SIGNAL, "bsic"): SensorMeta(
+        # https://en.wikipedia.org/wiki/Base_station_identity_code
+        name="BSIC",
+        icon="mdi:transmission-tower",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     (KEY_DEVICE_SIGNAL, "cell_id"): SensorMeta(
